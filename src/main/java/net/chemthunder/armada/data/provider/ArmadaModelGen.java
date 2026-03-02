@@ -1,7 +1,6 @@
 package net.chemthunder.armada.data.provider;
 
 import net.chemthunder.armada.impl.index.ArmadaItems;
-import net.chemthunder.armada.impl.item.ArmadaItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -19,5 +18,6 @@ public class ArmadaModelGen extends FabricModelProvider {
 
     public void generateItemModels(ItemModelGenerator generator) {
         generator.register(ArmadaItems.SOBRIQUET, Models.GENERATED);
+        generator.register(ArmadaItems.HEADHUNTER, Models.GENERATED);
     }
 }

@@ -1,6 +1,6 @@
 package net.chemthunder.armada.impl;
 
-import net.chemthunder.armada.impl.index.ArmadaItems;
+import net.chemthunder.armada.impl.index.*;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
@@ -14,6 +14,10 @@ public class Armada implements ModInitializer {
 
 	public void onInitialize() {
         ArmadaItems.init();
+        ArmadaEnchantmentEffects.init();
+        ArmadaDataComponents.init();
+        ArmadaEntities.init();
+        ArmadaItemGroups.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}
