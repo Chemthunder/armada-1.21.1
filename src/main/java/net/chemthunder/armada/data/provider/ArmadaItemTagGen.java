@@ -16,6 +16,7 @@ public class ArmadaItemTagGen extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         this.getOrCreateTagBuilder(ArmadaTags.TWO_HANDED)
                 .add(ArmadaItems.HEADHUNTER)
+                .add(ArmadaItems.BLOOMING_PETAL)
                 .setReplace(false);
     }
 }

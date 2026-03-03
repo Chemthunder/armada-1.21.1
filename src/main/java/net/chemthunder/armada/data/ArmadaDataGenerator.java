@@ -1,8 +1,8 @@
 package net.chemthunder.armada.data;
 
 import net.chemthunder.armada.data.provider.ArmadaItemTagGen;
-import net.chemthunder.armada.data.provider.ArmadaLangGen;
-import net.chemthunder.armada.data.provider.ArmadaModelGen;
+import net.chemthunder.armada.data.provider.resources.ArmadaLangGen;
+import net.chemthunder.armada.data.provider.resources.ArmadaModelGen;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 

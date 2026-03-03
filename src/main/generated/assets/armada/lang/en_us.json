@@ -1,5 +1,10 @@
 {
+  "item.armada.blaze_of_glory": "Blaze Of Glory",
+  "item.armada.blooming_petal": "Blooming Petal",
+  "item.armada.carrion_broadsword": "Carrion Broadsword",
   "item.armada.headhunter": "Headhunter",
+  "item.armada.intrasolar": "Intrasolar",
   "item.armada.sobriquet": "Sobriquet",
+  "item.armada.tuning_fork": "Tuning Fork",
   "itemGroup.armada": "Armada"
 }

@@ -46,7 +46,7 @@ public class HeadhunterItem extends ArmadaItem implements ModelVaryingItem, Cust
         if (!user.getItemCooldownManager().isCoolingDown(this)) {
             HeadhunterEntity hunter = new HeadhunterEntity(ArmadaEntities.HEADHUNTER, world);
 
-            hunter.setPos(user.getX(), user.getY() + 1.0f, user.getZ());
+            hunter.setPos(user.getX(), user.getY() + 2.0f, user.getZ());
             world.spawnEntity(hunter);
             user.getItemCooldownManager().set(this, 90);
         }
@@ -92,4 +92,6 @@ public class HeadhunterItem extends ArmadaItem implements ModelVaryingItem, Cust
     public void playHitSound(PlayerEntity player, Entity entity) {
         player.playSound(SoundEvents.BLOCK_NETHER_GOLD_ORE_BREAK, 1.0F, (float) (1.0F + player.getRandom().nextGaussian() / 10.0F));
     }
+
+    // launch swords or parry
 }
