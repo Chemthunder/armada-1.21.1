@@ -7,6 +7,7 @@ import net.minecraft.registry.tag.TagKey;
 
 public interface ArmadaTags {
     TagKey<Item> TWO_HANDED = create("two_handed");
+    TagKey<Item> TUNING_FORKS = create("tuning_forks");
 
     private static TagKey<Item> create(String id) {
         return TagKey.of(RegistryKeys.ITEM, Armada.id(id));

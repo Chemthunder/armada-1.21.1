@@ -3,6 +3,7 @@
   "package": "net.chemthunder.armada.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -11,6 +12,7 @@
     "requireAnnotations": true
   },
   "client": [
+    "client.InGameHudMixin",
     "client.PlayerEntityRendererMixin"
   ]
 }

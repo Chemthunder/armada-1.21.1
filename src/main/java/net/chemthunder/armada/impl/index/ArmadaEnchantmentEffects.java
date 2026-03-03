@@ -8,7 +8,7 @@ import net.minecraft.util.Unit;
 public interface ArmadaEnchantmentEffects {
     EnchantmentEffectRegistrant ENCHANT_EFFECTS = new EnchantmentEffectRegistrant(Armada.MOD_ID);
 
- //   ComponentType<Unit> REELING = ENCHANT_EFFECTS.register( "reeling", builder -> builder.codec(Unit.CODEC));
+    ComponentType<Unit> ATTUNE = ENCHANT_EFFECTS.register( "attune", builder -> builder.codec(Unit.CODEC));
 
     static void init() {
         //

@@ -1,5 +1,6 @@
 package net.chemthunder.armada.mixin.client;
 
+import net.chemthunder.armada.impl.index.ArmadaItems;
 import net.chemthunder.armada.impl.index.tag.ArmadaTags;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -26,6 +27,12 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
 
         if (stack.isIn(ArmadaTags.TWO_HANDED)) {
             cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_CHARGE);
+        }
+
+        if (stack.isOf(ArmadaItems.TUNING_FORK)) {
+            if (player.isUsingItem()) {
+                cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_HOLD);
+            }
         }
     }
 }

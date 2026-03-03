@@ -18,5 +18,9 @@ public class ArmadaItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(ArmadaItems.HEADHUNTER)
                 .add(ArmadaItems.BLOOMING_PETAL)
                 .setReplace(false);
+
+        this.getOrCreateTagBuilder(ArmadaTags.TUNING_FORKS)
+                .add(ArmadaItems.TUNING_FORK)
+                .setReplace(false);
     }
 }

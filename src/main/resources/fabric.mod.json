@@ -3,10 +3,11 @@
   "id": "armada",
   "version": "${version}",
   "name": "Armada",
-  "description": "An arsenal of weapons designed by AcoYT and repurposed by Chemthunder",
+  "description": "Unused does not mean useless.",
   "authors": [
     "Chemthunder",
-    "AcoYT"
+    "AcoYT - Artist",
+    "KindlingCinder - Artist"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",

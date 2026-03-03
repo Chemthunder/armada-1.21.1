@@ -1,15 +1,20 @@
 package net.chemthunder.armada.impl.item;
 
+import net.acoyt.acornlib.api.item.CustomHitParticleItem;
 import net.acoyt.acornlib.api.item.ModelVaryingItem;
 import net.acoyt.acornlib.api.util.MiscUtils;
+import net.acoyt.acornlib.api.util.ParticleUtils;
+import net.acoyt.acornlib.impl.client.particle.SweepParticleEffect;
 import net.chemthunder.armada.api.item.ArmadaItem;
 import net.chemthunder.armada.impl.Armada;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
@@ -17,7 +22,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
-public class BlazeOfGloryItem extends ArmadaItem implements ModelVaryingItem {
+public class BlazeOfGloryItem extends ArmadaItem implements ModelVaryingItem, CustomHitParticleItem {
+    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{
+            new SweepParticleEffect(0x4c3733, 0x56483d),
+            new SweepParticleEffect(0x644f34, 0x281116)
+    };
+
     public BlazeOfGloryItem(Settings settings) {
         super(settings, 0xFF644f34, 0xFF321114, 0xF0180c0e);
     }
@@ -46,5 +56,9 @@ public class BlazeOfGloryItem extends ArmadaItem implements ModelVaryingItem {
                         AttributeModifierSlot.MAINHAND
                 )
                 .build();
+    }
+
+    public void spawnHitParticles(PlayerEntity playerEntity, Entity target) {
+        ParticleUtils.spawnSweepParticles(EFFECTS[playerEntity.getRandom().nextInt(EFFECTS.length)], playerEntity);
     }
 }

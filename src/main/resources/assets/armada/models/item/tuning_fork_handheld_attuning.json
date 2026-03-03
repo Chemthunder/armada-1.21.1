@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"particle": "armada:item/tuning_fork_handheld",
+		"layer0": "armada:item/tuning_fork_handheld"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, -119],
+			"translation": [0.25, -2.5, -10.75],
+			"scale": [1.6, 1.6, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 180, 119],
+			"translation": [0.25, -2.5, -10.75],
+			"scale": [1.6, 1.6, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [90, 0, -135],
+			"translation": [-9, 3.7, 1.88],
+			"scale": [1.1, 1.1, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [90, 0, 135],
+			"translation": [-9, 3.7, 1.88],
+			"scale": [1.1, 1.1, 1]
+		}
+	}
+}
