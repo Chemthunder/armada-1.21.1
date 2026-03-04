@@ -44,6 +44,8 @@ public class ArmadaItem extends Item implements ColorableItem {
         return backgroundcolor;
     }
 
+
+
     public Text getName(ItemStack stack) {
         return super.getName(stack).copy().withColor(endColor);
     }

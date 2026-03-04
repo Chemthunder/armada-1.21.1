@@ -48,7 +48,13 @@ public class HeadhunterItem extends ArmadaItem implements ModelVaryingItem, Cust
 
             hunter.setPos(user.getX(), user.getY() + 2.0f, user.getZ());
             world.spawnEntity(hunter);
-            user.getItemCooldownManager().set(this, 90);
+
+            if (!user.isCreative()) {
+                user.getItemCooldownManager().set(this, 90);
+            }
+            user.swingHand(hand);
+
+            user.playSound(SoundEvents.BLOCK_BEACON_ACTIVATE, 1, 1);
         }
 
         return super.use(world, user, hand);

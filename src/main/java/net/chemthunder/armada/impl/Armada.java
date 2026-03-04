@@ -18,6 +18,7 @@ public class Armada implements ModInitializer {
         ArmadaDataComponents.init();
         ArmadaEntities.init();
         ArmadaItemGroups.init();
+        ArmadaStatusEffects.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}

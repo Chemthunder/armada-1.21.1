@@ -26,5 +26,9 @@ public interface ArmadaItemGroups {
         for (Item ITEMS : ArmadaItems.ITEMS.toRegister) {
             itemGroup.add(ITEMS);
         }
+
+        ItemStack Valediction = new ItemStack(ArmadaItems.TUNING_FORK);
+        Valediction.set(ArmadaDataComponents.SKIN, 1);
+        itemGroup.addAfter(ArmadaItems.TUNING_FORK, Valediction);
     }
 }

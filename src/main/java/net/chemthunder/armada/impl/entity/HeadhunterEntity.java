@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
@@ -45,18 +46,20 @@ public class HeadhunterEntity extends Entity {
             List<LivingEntity> entities = serverWorld.getEntitiesByClass(LivingEntity.class, area, entity -> true);
 
             for (LivingEntity entity : entities) {
-                entity.damage(entity.getDamageSources().magic(), 4.0f);
-                serverWorld.spawnParticles(
-                        ParticleTypes.END_ROD,
-                        entity.getX() + 0.5f,
-                        entity.getY() + 0.5f,
-                        entity.getZ() + 0.5f,
-                        4,
-                        0,
-                        0,
-                        0,
-                        1
-                );
+                if (!(entity instanceof PlayerEntity)) {
+                    entity.damage(entity.getDamageSources().magic(), 4.0f);
+                    serverWorld.spawnParticles(
+                            ParticleTypes.END_ROD,
+                            entity.getX(),
+                            entity.getY() + 0.5f,
+                            entity.getZ(),
+                            4,
+                            0,
+                            0,
+                            0,
+                            0.09f
+                    );
+                }
             }
         }
 
