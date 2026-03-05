@@ -17,6 +17,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
@@ -66,5 +67,31 @@ public class SobriquetItem extends ArmadaItem implements ModelVaryingItem, Custo
 
     public void playHitSound(PlayerEntity player, Entity entity) {
         player.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0F, (float) (1.0F + player.getRandom().nextGaussian() / 10.0F));
+    }
+
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (attacker instanceof PlayerEntity player) {
+            if (player.isSprinting()) {
+                if (!player.isSneaking()) {
+                    target.setVelocity(player.getRotationVec(0).multiply(4f));
+                    target.velocityModified = true;
+
+                    for(int i = 0; i < 6; i++) {
+                        player.getWorld().addParticle(
+                                ParticleTypes.END_ROD,
+                                true,
+                                target.getX() + 0.5f,
+                                target.getY() + 1.0f,
+                                target.getZ() + 0.5f,
+                                0.3f,
+                                0.3f,
+                                0.3f
+                        );
+                    }
+                }
+            }
+        }
+
+        return super.postHit(stack, target, attacker);
     }
 }

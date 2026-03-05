@@ -2,6 +2,7 @@ package net.chemthunder.armada.impl.item;
 
 import com.nitron.nitrogen.util.interfaces.ColorableItem;
 import net.acoyt.acornlib.api.item.CustomHitParticleItem;
+import net.acoyt.acornlib.api.item.CustomHitSoundItem;
 import net.acoyt.acornlib.api.item.ModelVaryingItem;
 import net.acoyt.acornlib.api.util.MiscUtils;
 import net.acoyt.acornlib.api.util.ParticleUtils;
@@ -33,7 +34,7 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class TuningForkItem extends ArmadaItem implements ModelVaryingItem, CustomHitParticleItem, ColorableItem {
+public class TuningForkItem extends ArmadaItem implements ModelVaryingItem, CustomHitParticleItem, ColorableItem, CustomHitSoundItem {
     public static final int maxCharges = 30;
     public static final SimpleParticleType[] EFFECTS = new SimpleParticleType[]{
             AcornParticles.LIGHT_GRAY_SWEEP,
@@ -42,7 +43,7 @@ public class TuningForkItem extends ArmadaItem implements ModelVaryingItem, Cust
 
     public static final SimpleParticleType[] ALT_EFFECTS = new SimpleParticleType[]{
             AcornParticles.MAGENTA_SWEEP,
-            AcornParticles.PURPLE_SWEEP
+            AcornParticles.BLACK_SWEEP
     };
 
     public int startColor(ItemStack itemStack) {
@@ -90,6 +91,7 @@ public class TuningForkItem extends ArmadaItem implements ModelVaryingItem, Cust
                 }
 
                 stack.set(skin, result);
+                player.stopUsingItem();
 
                 player.swingHand(player.getActiveHand());
                 player.playSoundToPlayer(SoundEvents.BLOCK_SMITHING_TABLE_USE, SoundCategory.BLOCKS, 1, 1);
@@ -178,5 +180,17 @@ public class TuningForkItem extends ArmadaItem implements ModelVaryingItem, Cust
 
     public static int getSkin(ItemStack stack) {
         return stack.getOrDefault(ArmadaDataComponents.SKIN, 0);
+    }
+
+    public void playHitSound(PlayerEntity player, Entity target) {
+        ItemStack stack = player.getMainHandStack();
+
+        if (getSkin(stack) == 1) {
+            player.playSound(SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK, 1, 0.2f);
+        } else {
+            player.playSound(SoundEvents.UI_BUTTON_CLICK.value(), 1, 4);
+        }
+
+
     }
 }
